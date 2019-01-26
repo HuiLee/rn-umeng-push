@@ -1,0 +1,21 @@
+PODS:
+  - UMCCommon (2.0.0)
+  - UMCPush (3.2.3):
+    - UMCCommon
+
+DEPENDENCIES:
+  - UMCCommon
+  - UMCPush
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - UMCCommon
+    - UMCPush
+
+SPEC CHECKSUMS:
+  UMCCommon: 79b5a614c958db367113eed5740109d9a98e1223
+  UMCPush: 628b5c61be5a5036cb31eb9b3a3ab8dce7521691
+
+PODFILE CHECKSUM: bd87a13136337c6d2ec0f9aa29036cdd61dbb3f2
+
+COCOAPODS: 1.5.3
