@@ -10,13 +10,34 @@
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 #import "RNUMConfigure.h"
+#import <UMPush/UMessage.h>
+
+
+@interface AppDelegate ()
+<UNUserNotificationCenterDelegate>
+
+@end
+
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  
   [UMConfigure setLogEnabled:YES];
   [RNUMConfigure initWithAppkey:@"5c4bd2ddb465f5ee9c000d0a" channel:@"App Store"];
+  
+  UMessageRegisterEntity * entity = [[UMessageRegisterEntity alloc] init];
+  entity.types = UMessageAuthorizationOptionBadge|UMessageAuthorizationOptionAlert;
+  [UNUserNotificationCenter currentNotificationCenter].delegate=self;
+  
+  [UMessage registerForRemoteNotificationsWithLaunchOptions:launchOptions Entity:entity completionHandler:^(BOOL granted, NSError * _Nullable error) {
+    if (granted) {
+    } else {
+    }
+  }];
+  
+  
   
   NSURL *jsCodeLocation;
 
