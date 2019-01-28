@@ -31,7 +31,8 @@
   entity.types = UMessageAuthorizationOptionBadge|UMessageAuthorizationOptionAlert;
   [UNUserNotificationCenter currentNotificationCenter].delegate=self;
   
-  [UMessage registerForRemoteNotificationsWithLaunchOptions:launchOptions Entity:entity completionHandler:^(BOOL granted, NSError * _Nullable error) {
+  [UMessage registerForRemoteNotificationsWithLaunchOptions:
+   launchOptions Entity:entity completionHandler:^(BOOL granted, NSError * _Nullable error) {
     if (granted) {
     } else {
     }
@@ -56,5 +57,16 @@
   [self.window makeKeyAndVisible];
   return YES;
 }
+
+//获取测试设备DeviceToken
+-(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+  NSString *token = [[[[deviceToken description]
+                      stringByReplacingOccurrencesOfString:@"<" withString:@""]
+                      stringByReplacingOccurrencesOfString:@">" withString:@""]
+                      stringByReplacingOccurrencesOfString:@" " withString:@"" ];
+  NSLog(@"deviceToken:%@",token);
+}
+
 
 @end
