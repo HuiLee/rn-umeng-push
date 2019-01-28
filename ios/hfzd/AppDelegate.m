@@ -25,6 +25,7 @@
 {
   
   [UMConfigure setLogEnabled:YES];
+  
   [RNUMConfigure initWithAppkey:@"5c4bd2ddb465f5ee9c000d0a" channel:@"App Store"];
   
   UMessageRegisterEntity * entity = [[UMessageRegisterEntity alloc] init];
